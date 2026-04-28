@@ -2,6 +2,8 @@
   "name": "pinprof-com",
   "private": true,
   "scripts": {
+    "practice:roundtrip": "node scripts/practice-roundtrip-check.mjs",
+    "practice:writepaths": "node scripts/practice-write-path-check.mjs",
     "preview": "python3 -m http.server 4321 --bind 127.0.0.1"
   }
 }

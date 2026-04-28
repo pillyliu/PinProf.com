@@ -6,7 +6,7 @@
   <title>PinProf | Study Smarter. Play Better. Score Higher.</title>
   <meta
     name="description"
-    content="PinProf puts league standings, score history, machine study tools, and focused practice tracking in one polished pinball companion app."
+    content="PinProf puts league standings, score history, game study tools, and focused practice tracking in one polished pinball companion app."
   >
   <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
@@ -16,7 +16,7 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
     rel="stylesheet"
   >
-  <link rel="stylesheet" href="styles.css?v=20260328">
+  <link rel="stylesheet" href="styles.css?v=20260426a">
 </head>
 <body>
   <div class="page-shell">
@@ -24,14 +24,18 @@
       <div class="hero-copy">
         <p class="eyebrow">Go from pinball novice to pinball wizard</p>
         <h1>
-          <span class="hero-line">Know your numbers.</span>
+          <span class="hero-line">Increase your scores.</span>
           <span class="hero-line">Perfect every game.</span>
-          <span class="hero-line">Master flipper skills.</span>
+          <span class="hero-line">Master the flippers.</span>
         </h1>
         <p class="lede">
-          PinProf combines stats, score targets, a searchable machine library, and a personal practice journal to help
+          PinProf combines stats, a searchable game library, and a personal practice journal to help
           you on your journey to becoming a pinball wizard.
         </p>
+        <div class="signal-card">
+          <span class="signal-kicker">Improve your game</span>
+          <p>League history, score benchmarks, rulesheets, playfield images, and practice logging in one place.</p>
+        </div>
         <div class="store-row" aria-label="App download links">
           <a
             class="store-card"
@@ -65,29 +69,36 @@
             height="720"
           >
         </div>
-        <div class="signal-card">
-          <span class="signal-kicker">Improve your game</span>
-          <p>League history, score benchmarks, rulesheets, playfield images, and practice logging in one place.</p>
-        </div>
       </div>
     </header>
 
     <main>
+      <section class="promo-video" aria-label="PinProf promo video">
+        <iframe
+          src="https://www.youtube.com/embed/zUt7EuE52Wo"
+          title="PinProf promo video"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </section>
+
       <section class="feature-grid" aria-label="PinProf features">
         <article class="feature-card">
           <h2>League Stats</h2>
           <p>
-            Track standings and scores with ease, wherever you go.
+            Track standings and scores with ease.
           </p>
         </article>
         <article class="feature-card">
-          <h2>Machine study</h2>
+          <h2>Game study</h2>
           <p>
             Search the game library, read rulesheets, review playfield images, and study video tutorials before league night.
           </p>
         </article>
         <article class="feature-card">
-          <h2>Practice with structure</h2>
+          <h2>Practice smarter</h2>
           <p>
             Log practice sessions, organize games for study, and record scores for focused training.
           </p>
@@ -95,7 +106,7 @@
         <article class="feature-card">
           <h2>Organize your collection</h2>
           <p>
-            Import your games from Pinside. Keep track of plays, mod installs, repairs, glass cleaning, and other maintenance.
+            Keep track of plays, mod installs, and repairs.
           </p>
         </article>
       </section>
@@ -103,20 +114,19 @@
       <section class="story-block">
         <div class="story-copy">
           <p class="section-label">What the app does</p>
-          <h2>PinProf is the go-to pinball app for studying, tracking, and improving.</h2>
+          <h2>PinProf is the go-to pinball app for becoming a better player.</h2>
           <p>
-            PinProf helps players understand how they perform in league, what scores to chase on specific games, and where
-            to focus next. Instead of juggling multiple resources, you get a single place to monitor and record
-            everything you need.
+            PinProf helps players understand how they perform, what scores to chase on specific games, and where
+            to focus next. Instead of juggling multiple resources, you get a single app that has everything you need.
           </p>
           <p>
-            Whether you are preparing for a tournament or just learning a game at home, PinProf gives you tools you
+            Whether you are preparing for a tournament or just learning a game, PinProf gives you tools you
             need to be the grand champion.
           </p>
         </div>
         <aside class="quote-card">
           <p>
-            "PinProf changed my life. Escaped from Nublar on ball 1, new grand champion score on ball 2, and a walk-off ball 3.”
+            "PinProf changed my life. New grand champion score on ball 1, defeated the Xileans on ball 2, and became King of the Monsters on ball 3."
           </p>
           <br>
           <p class="quote-attribution">- Abraham Lincoln</p>
@@ -133,6 +143,25 @@
           <br>
           <p class="quote-attribution">- Dorothy Gale</p>
         </aside>
+      </section>
+
+      <section class="support-block" aria-label="PinProf support and feedback">
+        <div>
+          <p class="section-label">Help improve PinProf</p>
+          <h2>Bug reports, testing notes, and data corrections are welcome.</h2>
+          <p>
+            For data corrections, please include the affected game/title, what PinProf currently shows incorrectly,
+            the correction, a source link, and a screenshot if helpful.
+          </p>
+          <p>
+            PinProf is a solo-run project, so I’ll review feedback as I’m able. I really appreciate everyone who has
+            tried out the app and taken the time to provide feedback!
+          </p>
+        </div>
+        <div class="support-actions" aria-label="Feedback links">
+          <a href="https://github.com/pillyliu/pinprof-feedback/issues/new/choose" target="_blank" rel="noreferrer">Open a GitHub issue</a>
+          <a href="mailto:peter@pinprof.com">Email peter@pinprof.com</a>
+        </div>
       </section>
     </main>
 

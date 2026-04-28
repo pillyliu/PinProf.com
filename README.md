@@ -10,6 +10,17 @@ npm run preview
 
 Then open [http://127.0.0.1:4321](http://127.0.0.1:4321).
 
+The Practice web app starts at [http://127.0.0.1:4321/practice/](http://127.0.0.1:4321/practice/).
+
+To preview Practice with the mirrored pinball catalog and asset payloads, link a local `/pinball`
+directory first:
+
+```sh
+scripts/link-local-pinball.sh
+```
+
+Then open [http://127.0.0.1:4321/practice/?pinball=1](http://127.0.0.1:4321/practice/?pinball=1).
+
 ## Deployment
 
 There is no separate deploy script in this repo right now.

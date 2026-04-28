@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PinProf Practice</title>
+  <meta
+    name="description"
+    content="Import, review, and edit canonical PinProf Practice JSON in the PinProf web app."
+  >
+  <link rel="icon" type="image/png" href="../assets/favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="./styles.css?v=20260426y">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="PinProf home">
+        <img src="../assets/favicon/favicon-32x32.png" alt="">
+        <span>PinProf Practice</span>
+      </a>
+      <div class="topbar-actions" aria-label="Practice actions">
+        <button id="practice-search-button" class="top-action-button" type="button" aria-label="Search games">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+          <span class="visually-hidden">Search</span>
+        </button>
+        <button id="practice-settings-button" class="top-action-button" type="button" aria-label="Open Practice Settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9.67 4.14a2.34 2.34 0 0 1 4.66 0 2.34 2.34 0 0 0 3.32 1.91 2.34 2.34 0 0 1 2.33 4.03 2.34 2.34 0 0 0 0 3.84 2.34 2.34 0 0 1-2.33 4.03 2.34 2.34 0 0 0-3.32 1.91 2.34 2.34 0 0 1-4.66 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.03 2.34 2.34 0 0 0 0-3.84 2.34 2.34 0 0 1 2.33-4.03 2.34 2.34 0 0 0 3.32-1.91"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <span class="visually-hidden">Settings</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="main-grid">
+        <aside class="sidebar" aria-label="Practice navigation">
+          <div class="panel route-nav-panel">
+            <div class="panel-header">
+              <h1>Practice</h1>
+            </div>
+            <div class="route-list" aria-label="Practice sections">
+              <button class="route-row" id="route-home" type="button" data-route="home">
+                <span class="row-title">Home</span>
+                <span class="row-meta">Resume, quick entry, groups</span>
+              </button>
+              <button class="route-row" id="route-group-dashboard" type="button" data-route="group-dashboard">
+                <span class="row-title">Group Dashboard</span>
+                <span class="row-meta">View and edit groups</span>
+              </button>
+              <button class="route-row" id="route-journal" type="button" data-route="journal">
+                <span class="row-title">Journal</span>
+                <span class="row-meta">Full app activity history</span>
+              </button>
+              <button class="route-row" id="route-insights" type="button" data-route="insights">
+                <span class="row-title">Insights</span>
+                <span class="row-meta">Scores, variance, trends</span>
+              </button>
+              <button class="route-row" id="route-mechanics" type="button" data-route="mechanics">
+                <span class="row-title">Mechanics</span>
+                <span class="row-meta">Track pinball skills</span>
+              </button>
+            </div>
+          </div>
+        </aside>
+
+        <section class="detail">
+          <div class="panel hero-panel" hidden>
+            <div>
+              <p class="kicker" id="selected-game-meta">Practice workspace</p>
+              <h2 id="selected-game-title">Import Practice JSON</h2>
+            </div>
+            <div class="selected-context-stack" aria-label="Practice context">
+              <span id="selected-route-label" class="context-chip">Home</span>
+              <span id="selected-group-label" class="context-chip is-muted">All Practice</span>
+            </div>
+          </div>
+
+          <div id="route-panel-home" class="route-panel">
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Home</h2>
+              </div>
+              <div id="home-content" class="home-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-search" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Find Game</h2>
+              </div>
+              <div id="search-content" class="search-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-group-dashboard" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Group Dashboard</h2>
+              </div>
+              <div id="group-dashboard-content" class="group-dashboard-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-group-editor" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Group Editor</h2>
+              </div>
+              <div id="group-editor-content" class="group-editor-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-game" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Game</h2>
+                <div id="game-panel-toolbar" class="game-panel-toolbar" hidden></div>
+              </div>
+              <div id="summary-content" class="summary-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-entry" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Quick Entry</h2>
+              </div>
+              <div id="entry-content" class="entry-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-study" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Study</h2>
+              </div>
+              <div id="study-content" class="resource-list"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-rulesheet" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Rulesheet</h2>
+              </div>
+              <div id="rulesheet-content" class="resource-view-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-playfield" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Playfield</h2>
+              </div>
+              <div id="playfield-content" class="resource-view-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-journal" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Journal</h2>
+              </div>
+              <div id="journal-content" class="journal-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-insights" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Insights</h2>
+              </div>
+              <div id="insights-content" class="insights-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-mechanics" class="route-panel" hidden>
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Mechanics</h2>
+              </div>
+              <div id="mechanics-content" class="mechanics-content"></div>
+            </section>
+          </div>
+
+          <div id="route-panel-settings" class="route-panel" hidden>
+            <section class="panel settings-data-panel">
+              <div class="panel-header">
+                <div>
+                  <h2>Practice Data</h2>
+                  <p class="panel-subtitle">Import, export, and inspect the local Practice JSON.</p>
+                </div>
+                <nav class="top-actions settings-data-actions" aria-label="Practice data actions">
+                  <label class="file-button">
+                    <input id="practice-import" type="file" accept="application/json,.json">
+                    Import JSON
+                  </label>
+                  <button id="practice-export" type="button">Export JSON</button>
+                  <button id="practice-sample" type="button">Load Sample</button>
+                </nav>
+              </div>
+
+              <section class="status-strip" aria-live="polite">
+                <div>
+                  <span class="status-label">Data</span>
+                  <strong id="state-status">No Practice JSON loaded</strong>
+                </div>
+                <div>
+                  <span class="status-label">Library</span>
+                  <strong id="library-status">Loading /pinball</strong>
+                </div>
+                <div>
+                  <span class="status-label">Schema</span>
+                  <strong id="schema-status">-</strong>
+                </div>
+              </section>
+
+              <section class="summary-grid" aria-label="Practice summary">
+                <article class="metric">
+                  <span>Scores</span>
+                  <strong id="metric-scores">0</strong>
+                </article>
+                <article class="metric">
+                  <span>Journal</span>
+                  <strong id="metric-journal">0</strong>
+                </article>
+                <article class="metric">
+                  <span>Groups</span>
+                  <strong id="metric-groups">0</strong>
+                </article>
+                <article class="metric">
+                  <span>Study</span>
+                  <strong id="metric-study">0</strong>
+                </article>
+              </section>
+
+              <section class="validation-panel" aria-label="Practice JSON report">
+                <div class="panel-header">
+                  <div>
+                    <h3>Import Report</h3>
+                    <p id="validation-summary" class="panel-subtitle">Waiting for Practice JSON.</p>
+                  </div>
+                  <div id="validation-counts" class="validation-counts"></div>
+                </div>
+                <div id="validation-list" class="validation-list"></div>
+              </section>
+            </section>
+
+            <section class="panel">
+              <div class="panel-header">
+                <h2>Practice Settings</h2>
+              </div>
+              <div id="settings-content" class="settings-content"></div>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./src/app.js?v=20260426y"></script>
+</body>
+</html>
